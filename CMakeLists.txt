@@ -1,12 +1,20 @@
+PROJECT(test01)
+
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 include(CMakeLists.txt.user)
 
-find_package(Boost REQUIRED)
+SET(Boost_USE_STATIC_LIBS OFF)
+SET(Boost_USE_STATIC_RUNTIME OFF)
+SET(Boost_USE_MULTITHREAD ON)
+find_package(Boost REQUIRED COMPONENTS system)
 
+message(status "** Boost_INCLUDE_DIR = ${Boost_INCLUDE_DIR}")
+message(status "** Boost_LIBRARY_DIRS = ${Boost_LIBRARY_DIRS}")
+message(status "** Boost_LIBRARIES = ${Boost_LIBRARIES}")
+
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 include_directories(${Boost_INCLUDE_DIR})
-link_directories(${Boost_LIBRARY_DIR})
-
-PROJECT(test01)
 
 ADD_EXECUTABLE(test01 main.cpp)
+target_link_libraries(test01 ${Boost_LIBRARIES})

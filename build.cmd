@@ -8,6 +8,7 @@ if not exist %build_dir% (
 	cmake ..
 ) else (
 	cd %build_dir%
+	cmake ..
 )
 
 cmake --build .
