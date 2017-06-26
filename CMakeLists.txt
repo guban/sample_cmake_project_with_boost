@@ -9,10 +9,6 @@ SET(Boost_USE_STATIC_RUNTIME OFF)
 SET(Boost_USE_MULTITHREAD ON)
 find_package(Boost REQUIRED COMPONENTS system)
 
-message(status "** Boost_INCLUDE_DIR = ${Boost_INCLUDE_DIR}")
-message(status "** Boost_LIBRARY_DIRS = ${Boost_LIBRARY_DIRS}")
-message(status "** Boost_LIBRARIES = ${Boost_LIBRARIES}")
-
 LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 include_directories(${Boost_INCLUDE_DIR})
 
