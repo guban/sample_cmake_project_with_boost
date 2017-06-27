@@ -1,0 +1,4 @@
+# Copy this file, stripping the ".sample" suffix from its name.
+# In the copied file, update the path to match your local location of boost libraries.
+
+SET(BOOST_ROOT "C:/local/boost_1_64_0")
