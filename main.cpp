@@ -1,9 +1,22 @@
 #include <iostream>
-#include <boost/asio.hpp>
+#include <boost/filesystem.hpp>
 
 using namespace std;
+using namespace boost::filesystem;
 
-int main()
+int main(int argc, char * argv[])
 {
-	cout << "Hi there!" << endl;
+	if (argc < 2)
+	{
+		cerr << "Need file path as an argument";
+		return 1;
+	}
+
+	path p(argv[1]);
+	
+	cout << "Path " << p << " is "
+		<< (is_regular_file(p) ? "" : "not ")
+		<< "a regular file." << endl;
+	
+	return 0;
 }
